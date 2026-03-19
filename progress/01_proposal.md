@@ -7,18 +7,16 @@
    - NFL Big Data Bowl has public player-tracking data from the past couple of seasons.
 
 2. NBA player performance prediction and player similarity recommender
-
-- Predict points, assists, rebounds, or fantasy points for a game. (Regression)
-- Predict whether a player will exceed a scoring threshold for any given game. (Classification)
-- Cluster players into groups based on play styles. (aggressive rushers, bench scorers, etc.)
-- Public NBA/player datasets are available on Kaggle, some are updated daily.
+   - Predict points, assists, rebounds, or fantasy points for a game. (Regression)
+   - Predict whether a player will exceed a scoring threshold for any given game. (Classification)
+   - Cluster players into groups based on play styles. (aggressive rushers, bench scorers, etc.)
+   - Public NBA/player datasets are available on Kaggle, some are updated daily.
 
 3. MLB home run distance or xwOBA prediction and hitter clustering
-
-- Predict home run distance, expected batting average, or hard-hit probability from launch angle, exit velocity, pitch type, count, and zone. (Regression)
-- Predict whether a batted ball will become a home run. (Classification)
-- Group hitters into profiles such as “pull-power fly-ball hitters,” “high-contact line-drive hitters,” and “three-true-outcomes sluggers.”
-- Baseball Savant hosts official Google StatCast data and includes batted-ball and pitch-level information.
+   - Predict home run distance, expected batting average, or hard-hit probability from launch angle, exit velocity, pitch type, count, and zone. (Regression)
+   - Predict whether a batted ball will become a home run. (Classification)
+   - Group hitters into profiles such as “pull-power fly-ball hitters,” “high-contact line-drive hitters,” and “three-true-outcomes sluggers.”
+   - Baseball Savant hosts official Google StatCast data and includes batted-ball and pitch-level information.
 
 ## Influence of AI
 
