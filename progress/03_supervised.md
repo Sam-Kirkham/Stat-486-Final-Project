@@ -4,22 +4,13 @@ The goal of this project is to use pitch level metrics such as pitch speed, pitc
 
 2. Supervised Models Implemented
 
-Create a table or concise summary listing:
+| Model Type          | Key Hyperparameters Explored                                    | Validation Setup                                                          | Performance Metrics & Final Values       |
+| ------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------- |
+| Logistic Regression | C (regularization strength), penalty, max_iter                  | 75/25 train-test split with stratification to preserve class balance      | AUC = **0.769**                          |
+| SVM (RBF Kernel)    | C (regularization strength), gamma                              | 75/25 train-test split with stratification to preserve class balance      | AUC = **0.743**                          |
+| Random Forest       | Number of trees, max depth, min samples per split, max features | 75/25 train-test split with stratification; OOB error used for validation | OOB Score = **0.9501**, AUC = **0.6679** |
 
-Model type: Logistic Regression
-Key hyperparameters explored: C (Regularization Strength), penalty, max_iter.
-Validation setup used (for example: train/validation split or cross-validation): We used a train/test split with 75% training, 25% test with stratification to preserve the class balance. 
-Performance metrics used and final values: We used AUC score which resulted in a score of 0.769.
-
-Model type: SVM (RBF Kernel)
-Key hyperparameters explored: C (Regularization Strength), gamma.
-Validation setup used (for exaxmple: train/validation split of cross validation): We used a train/test split with 75% training, 25% test with stratification to preserve the class balance.
-Performance metrics used and final values: We used AUC score which resulted in a score of 0.743.
-
-Model type: Random Forest
-Key hyperparameters explored: Number of trees, maximum tree depth, minimum samples per split, maximum features per split, and class weight.
-Validation setup used (for example: train/validation split or cross-validation): We used a train/test split with 75% training, 25% test with stratification to preserve the class balance. Out of bag error was used as our validation metric.
-Performance metrics used and final values: We used out of bag error to approximate the test accuracy of the random forest. OOB score: 0.9501. We also used AUC score which resulted in a score of 0.66793.
+Due to large imbalance in our dataset, accuracy is a misleading metric. We decided to use AUC as it works much better when one class appears a lot more frequently than the other.
 
 3. Model Comparison and Selection
 
@@ -39,7 +30,7 @@ Our dataset has a large imbalance issue due to the huge amount of observations c
 For our explainable AI Method we used Permutation Importance. What this importance shows is that if we randomly change the feature in the model how much does the AUC score decrease. From this table it is clear that zone is the most important feature. What the value of 0.239 tells us is that if we randomly shuffle zone in our model that means that our AUC score drops by 0.239. That is a huge drop, so we can see that zone is a major contributer in the model.
 
 | Feature           | Importance |
-|-------------------|------------|
+| ----------------- | ---------- |
 | zone              | 0.239019   |
 | pitch_count       | 0.029867   |
 | pitch_number      | 0.024371   |
@@ -50,5 +41,8 @@ For our explainable AI Method we used Permutation Importance. What this importan
 
 5. Final Takeaways
 
-Summarize key insights gained from supervised learning.
-Explain how this analysis answers your research question.
+During this analysis we fit an SVM, a random forest, and a logistic regression model to our pitch level data. We were able to see that although SVM and random forests are more flexible, the logistic regression model performed the best. This suggests that the relationship between the variables we chose as predictors and hit probability can be approximated pretty well by a linear decision boundary. When looking at feature importance, all three models had zone (pitch location) as the strongest predictor. This was further supported by the permutation importance that showed a substantial drop in AUC when zone was shuffled.
+
+A huge part of the learning curve with this project has been dealing with imbalanced data. Since the data is so imbalanced, it is easy for our models to predict the majority class every time and still make out with a high accuracy score. To combat this we used methods such as SMOTE with the SVM and class_weight = "balanced" with the random forest combined with the use of AUC to get better insights on the true effectiveness of our models.
+
+This analysis directly helps answer our research question. Our results show that pitch-level predictors can meaningfully predict hit probability with a moderate predictive power (AUC = 0.77). This predictive power is not evenly spread across our chosen features, however, and instead is heavily concentrated in pitch location with the other variables contributing to only small improvements. Overall, this means that while multiple pitch and batter characteristics contribute to outcomes, the location of the pitch is by far the most critical factor in determining whether Kyle Schwarber records a hit. The relationship seems to be pretty simple and structured, which is why using a simple, linear modeling type (logistic regression) performed better than some of the more complex models.
