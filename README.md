@@ -2,6 +2,7 @@ Welcome to our in depth analysis of Kyle Schwarber's 2021-2025 seasons! We are b
 
 # Repository Structure
 
+```
 ├── data/ # Data files
 ├── progress/ # Project deliverables
 ├── Supervised Models/ # Model fitting and exploration code
@@ -9,6 +10,7 @@ Welcome to our in depth analysis of Kyle Schwarber's 2021-2025 seasons! We are b
 ├── Demo.ipynb # Main demo notebook
 ├── README.md # Project overview
 ├── requirements.txt # Dependencies
+```
 
 # Steps to Reproduce Results
 
@@ -36,6 +38,7 @@ Welcome to our in depth analysis of Kyle Schwarber's 2021-2025 seasons! We are b
 ```
 
 4. Run the demo notebook
+
    Open and run Demo.ipynb
 
 # Main Results
