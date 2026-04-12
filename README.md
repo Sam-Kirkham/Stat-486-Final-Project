@@ -24,8 +24,8 @@ Welcome to our in depth analysis of Kyle Schwarber's 2021-2025 seasons! We are b
 2. Create a virtual environment
 
 ```bash
-  #If on windows, use python instead of python3
-  python3 -m venv venv
+  #If on windows, use python instead of python3. Python version 3.11 is needed as not all functionality works with current versions of libraries.
+  python3.11 -m venv venv
   source venv/bin/activate
 
   #venv\Scripts\activate     for Windows
